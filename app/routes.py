@@ -192,10 +192,10 @@ def post():
     form = PostForm()
     form.category.choices = [(category.id, category.name) for category in Category.query.all()]  # Neu
     if form.validate_on_submit():
-            post= Post(body=form.post.data, author=current_user,  category_id=form.category.data)
+            post= Post(titlep=form.titlep.data, body=form.post.data, author=current_user,  category_id=form.category.data)
             db.session.add(post)
             db.session.commit()
-            flash("Yor Tweet is now Singing!")
+            flash("Your Post is now live!")
             return redirect(url_for("index"))
 
 

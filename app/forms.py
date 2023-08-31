@@ -69,6 +69,7 @@ class EmptyForm(FlaskForm):
 
 
 class PostForm(FlaskForm):
-    post = TextAreaField(_l('Say something'), validators=[DataRequired()])
+    titlep = TextAreaField("Title", validators=[DataRequired()])
+    post = TextAreaField(_l('Post'), validators=[DataRequired()])
     category = SelectField("Category", coerce=int, validators=[DataRequired()])  # Neu
-    submit = SubmitField(_l('Submit'))
+    submit = SubmitField(_l('Post now'))
